@@ -18,7 +18,10 @@ from tracking_utils.log import logger
 from tracking_utils.timer import Timer
 from tracking_utils.evaluation import Evaluator
 import datasets.dataset.jde as datasets
+from tensorflow.keras.layers import Layer, InputSpec
+from lib.utils.utils import predict, load_images, display_images
 from keras.models import load_model
+
 from layers import BilinearUpSampling2D
 
 from tracking_utils.utils import mkdir_if_missing
@@ -71,7 +74,7 @@ def write_results_score(filename, results, data_type):
 
 def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_image=True, frame_rate=30, use_cuda=True):
     custom_objects = {'BilinearUpSampling2D': BilinearUpSampling2D, 'depth_loss_function': None}
-    depth_model = load_model('nyu.h5', custom_objects=custom_objects, compile=False)
+    depth_model = load_model('/models/nyu.h5', custom_objects=custom_objects, compile=False)
     
     xf=320/1920
     yf=240/1080
@@ -81,7 +84,7 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
     tracker = JDETracker(opt, frame_rate=frame_rate)
     timer = Timer()
     # results = []
-    frame_id = 1
+    frame_id = 0
     #for path, img, img0 in dataloader:
     for i, (path, img, img0) in enumerate(dataloader):
         #if i % 8 != 0:
@@ -107,7 +110,7 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
                 cx=(tlwh[0]+tlwh[2]/2)*xf
                 cy=(tlwh[1]+tlwh[3]/2)*yf
                 if cx>=81 and cx<=240:
-                    if frame_id % 60==0:
+                    if frame_id % 240==0:
                         depth_predict=depth_model.predict(img0)
                 
                         if depth_predict[0][cy][cx]<0.17:
