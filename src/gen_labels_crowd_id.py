@@ -28,33 +28,35 @@ def gen_labels_crowd(data_root, label_root, ann_root):
         print(i)
         image_name = '{}.jpg'.format(ann_data['ID'])
         img_path = os.path.join(data_root, image_name)
-        anns = ann_data['gtboxes']
-        img = cv2.imread(
-            img_path,
-            cv2.IMREAD_COLOR | cv2.IMREAD_IGNORE_ORIENTATION
-        )
-        img_height, img_width = img.shape[0:2]
-        for i in range(len(anns)):
-            if 'extra' in anns[i] and 'ignore' in anns[i]['extra'] and anns[i]['extra']['ignore'] == 1:
-                continue
-            x, y, w, h = anns[i]['fbox']
-            x += w / 2
-            y += h / 2
-            label_fpath = img_path.replace('images', 'labels_with_ids').replace('.png', '.txt').replace('.jpg', '.txt')
-            label_str = '0 {:d} {:.6f} {:.6f} {:.6f} {:.6f}\n'.format(
-                tid_curr, x / img_width, y / img_height, w / img_width, h / img_height)
-            with open(label_fpath, 'a') as f:
-                f.write(label_str)
-            tid_curr += 1
+        if os.path.exists(img_path)==True:
+          
+          anns = ann_data['gtboxes']
+          img = cv2.imread(
+              img_path,
+              cv2.IMREAD_COLOR | cv2.IMREAD_IGNORE_ORIENTATION
+          )
+          img_height, img_width = img.shape[0:2]
+          for i in range(len(anns)):
+              if 'extra' in anns[i] and 'ignore' in anns[i]['extra'] and anns[i]['extra']['ignore'] == 1:
+                  continue
+              x, y, w, h = anns[i]['fbox']
+              x += w / 2
+              y += h / 2
+              label_fpath = img_path.replace('images', 'labels_with_ids').replace('.png', '.txt').replace('.jpg', '.txt')
+              label_str = '0 {:d} {:.6f} {:.6f} {:.6f} {:.6f}\n'.format(
+                  tid_curr, x / img_width, y / img_height, w / img_width, h / img_height)
+              with open(label_fpath, 'a') as f:
+                  f.write(label_str)
+              tid_curr += 1
 
 
 if __name__ == '__main__':
-    data_val = '/data/yfzhang/MOT/JDE/crowdhuman/images/val'
-    label_val = '/data/yfzhang/MOT/JDE/crowdhuman/labels_with_ids/val'
-    ann_val = '/data/yfzhang/MOT/JDE/crowdhuman/annotation_val.odgt'
-    data_train = '/data/yfzhang/MOT/JDE/crowdhuman/images/train'
-    label_train = '/data/yfzhang/MOT/JDE/crowdhuman/labels_with_ids/train'
-    ann_train = '/data/yfzhang/MOT/JDE/crowdhuman/annotation_train.odgt'
+    data_val = '/content/MajorProject/dataset/images/val'
+    label_val = 'MajorProject/dataset/labels_with_ids/val'
+    ann_val = '/content/MajorProject/dataset/annotation_val.odgt'
+    data_train = '/content/MajorProject/dataset/images/train'
+    label_train = 'MajorProject/dataset/labels_with_ids/train'
+    ann_train = '/content/MajorProject/dataset/annotation_train.odgt'
     gen_labels_crowd(data_train, label_train, ann_train)
     gen_labels_crowd(data_val, label_val, ann_val)
 

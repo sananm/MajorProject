@@ -21,6 +21,7 @@ import datasets.dataset.jde as datasets
 from tensorflow.keras.layers import Layer, InputSpec
 from lib.utils.utils import predict, load_images, display_images
 from keras.models import load_model
+import matplotlib
 
 from layers import BilinearUpSampling2D
 
@@ -74,7 +75,7 @@ def write_results_score(filename, results, data_type):
 
 def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_image=True, frame_rate=30, use_cuda=True):
     custom_objects = {'BilinearUpSampling2D': BilinearUpSampling2D, 'depth_loss_function': None}
-    depth_model = load_model('/models/nyu.h5', custom_objects=custom_objects, compile=False)
+    depth_model = load_model('/content/gdrive/MyDrive/nyu.h5', custom_objects=custom_objects, compile=False)
     
     xf=320/1920
     yf=240/1080
@@ -85,8 +86,10 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
     timer = Timer()
     # results = []
     frame_id = 0
+    c=0
     #for path, img, img0 in dataloader:
     for i, (path, img, img0) in enumerate(dataloader):
+        
         #if i % 8 != 0:
             #continue
         if frame_id % 20 == 0:
@@ -107,19 +110,30 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
             tid = t.track_id
             vertical = tlwh[2] / tlwh[3] > 1.6
             if tlwh[2] * tlwh[3] > opt.min_box_area and not vertical:
-                cx=(tlwh[0]+tlwh[2]/2)*xf
-                cy=(tlwh[1]+tlwh[3]/2)*yf
+                cx=int((tlwh[0]+(tlwh[2]/2))*xf)
+                cy=int((tlwh[1]+(tlwh[3]/2))*yf)
+                
                 if cx>=81 and cx<=240:
-                    if frame_id % 240==0:
-                        depth_predict=depth_model.predict(img0)
-                
-                        if depth_predict[0][cy][cx]<0.17:
-                            print("Person too close")
-                
-                
-                # online_tlwhs.append(tlwh)
-                # online_ids.append(tid)
-                #online_scores.append(t.score)
+                    if frame_id % 60==0:
+
+                      temp=cv2.resize(img0,(640,480))
+                      # cv2.imwrite('test1.jpg',temp)
+                      # print(temp.shape)
+                      temp=np.resize(temp,(1,480,640,3))
+                      temp=np.clip(temp/255,0,1)
+                      # print(temp.shape)
+                      depth_predict=predict(depth_model,temp)
+                      # viz = display_images(depth_predict.copy())
+                      
+                      # matplotlib.image.imsave('test.png', viz)
+                      
+                      # print(depth_predict[0][cy][cx])
+                      # print(tid)
+                      if depth_predict[0][cy][cx]<0.21:
+                          # print(cy,cx)
+                          
+                          print(frame_id)
+                          print("Person too close")
                 
                 
         
@@ -138,7 +152,7 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
     #         cv2.imshow('online_im', online_im)
     #     if save_dir is not None:
     #         cv2.imwrite(os.path.join(save_dir, '{:05d}.jpg'.format(frame_id)), online_im)
-    #     frame_id += 1
+        frame_id += 1
     # # save results
     # write_results(result_filename, results, data_type)
     # #write_results_score(result_filename, results, data_type)

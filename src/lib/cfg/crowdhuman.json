@@ -1,16 +1,13 @@
 {
-    "root":"/home/zyf/dataset",
-    "train":
-    {
-        "crowdhuman_train":"./data/crowdhuman.train",
-        "crowdhuman_test":"./data/crowdhuman.val"
+    "root": "/content/MajorProject/dataset",
+    "train": {
+        "CrowdHuman_train01": "src/data/crowdhuman.train",
+        "CrowedHuman_test": "src/data/crowdhuman.val"
     },
-    "test_emb":
-    {
-        "mot15":"./data/mot15.val"
+    "test": {
+        "CrowedHuman_test": "src/data/crowdhuman.val"
     },
-    "test":
-    {
-        "mot15":"./data/mot15.val"
+    "test_emb": {
+        "CrowedHuman_test": "src/data/crowdhuman.val"
     }
 }
