@@ -114,6 +114,7 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
                 cy=int((tlwh[1]+(tlwh[3]/2))*yf)
                 
                 if cx>=81 and cx<=240:
+                    
                     if frame_id % 60==0:
 
                       temp=cv2.resize(img0,(640,480))
@@ -130,10 +131,18 @@ def eval_seq(opt, dataloader, data_type, result_filename, save_dir=None, show_im
                       # print(depth_predict[0][cy][cx])
                       # print(tid)
                       if depth_predict[0][cy][cx]<0.21:
+                          if cx<121:   
+                            print(frame_id)                           
+                            print("Person too close to left, please move to the right!")
                           # print(cy,cx)
-                          
-                          print(frame_id)
-                          print("Person too close")
+                          elif cx>200:
+                            print(frame_id)
+                            print("Person too close to right, please move to the left!")
+                            
+                          else:
+                            print(frame_id)
+                            print("Person too close to center, please move to the left or right!")  
+                            
                 
                 
         
