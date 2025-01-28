@@ -59,65 +59,58 @@ from google.colab import import drive
 drive.mount('/content/gdrive')
 ```
 2️⃣ Clone the Repository
-bash
-Copy
-Edit
+```
 git clone https://github.com/sanaman/MajorProject
 cd MajorProject
+```
 3️⃣ Install Dependencies
-bash
-Copy
-Edit
+```
 pip install -r requirements.txt
+```
 4️⃣ Install PyTorch (CUDA Enabled)
-bash
-Copy
-Edit
+```
 pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+```
 5️⃣ Clone and Compile DCNv2 (Required for FairMOT)
-bash
-Copy
-Edit
+```
 git clone -b pytorch_1.7 https://github.com/ifzhang/DCNv2.git
 cd DCNv2
 ./make.sh
 cd ..
+```
 6️⃣ Run the Model on a Test Video
-bash
-Copy
-Edit
+```
 python src/demo.py mot --arch resdcn_34 --load_model /content/gdrive/MyDrive/model_50.pth --conf_thres 0.4 --input-video /content/MajorProject/videos/test.mp4
-🏆 Results & Performance
+```
+## 🏆 Results & Performance
 Metric	Value
 Object Detection Accuracy	92.5%
 Tracking Accuracy (MOTA)	87.2%
 Depth Estimation RMSE	0.45m
 Inference Speed	~60ms/frame
-⚡ Challenges Faced
+##⚡ Challenges Faced
 Data Diversity: Improving model generalization for different environments.
 Real-Time Processing: Optimizing latency for real-time tracking.
 Depth Estimation Accuracy: Handling varying lighting conditions.
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 📱 Mobile App Integration – Develop an Android/iOS application.
 🎙 Voice Assistant Support – Implement AI-powered speech feedback.
 🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
-📜 References
+## 📜 References
 Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
 Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer Learning", arXiv, 2018.
-🤝 Contributors
+## 🤝 Contributors
 👤 Ananya Vudumula
 👤 Mohammed Sanan Moinuddin
-📚 Supervisor: Dr. M. Swamy Das (CBIT)
+## 📚 Supervisor: Dr. M. Swamy Das (CBIT)
 
-📝 License
+##📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-⭐ Show Your Support!
+##⭐ Show Your Support!
 If you found this project useful, consider giving it a ⭐ on GitHub and sharing it with others! 🚀
 
-markdown
-Copy
-Edit
+
 
 ---
 
