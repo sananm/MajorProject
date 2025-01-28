@@ -27,6 +27,7 @@ graph TD;
     E -->|Object Close?| F{Yes};
     F -->|Trigger Audio Alert| G(Speaker Output);
     F -->|No Action| H[Continue Processing];
+```
 🛠 Technologies Used
 Programming Language: Python 3.8
 Deep Learning Frameworks: PyTorch, TensorFlow
