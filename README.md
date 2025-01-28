@@ -1,7 +1,5 @@
 # Smart Assistance System for the Blind using FairMOT and Depth Estimation
 
-![Project Banner](https://your-image-url.com/banner.png)  <!-- Add a relevant image -->
-
 ## 📌 Overview
 The **Smart Assistance System for the Blind** is an AI-powered assistive technology designed to help visually impaired individuals navigate safely by detecting obstacles and providing real-time alerts. The system integrates **FairMOT** for multi-object tracking and **depth estimation** for object distance calculation.
 
@@ -31,10 +29,10 @@ graph TD;
     F -->|No Action| H[Continue Processing];
 ```
 ## 🛠 Technologies Used
-Programming Language: Python 3.8
-Deep Learning Frameworks: PyTorch, TensorFlow
-Computer Vision Libraries: OpenCV
-Hardware: NVIDIA CUDA-enabled GPU (for faster inference)
+### Programming Language: Python 3.8
+### Deep Learning Frameworks: PyTorch, TensorFlow
+### Computer Vision Libraries: OpenCV
+### Hardware: NVIDIA CUDA-enabled GPU (for faster inference)
 
 ## 🔬 Models Used
 
@@ -48,10 +46,14 @@ Encoder: DenseNet-169 pre-trained on ImageNet
 Decoder: Upsampling with skip connections
 Dataset: Trained on NYU Depth v2 dataset
 
-## 📊 Dataset Details
-Dataset Name	Purpose	Size	Source
-CrowdHuman	Object detection & tracking	15K+ images	CrowdHuman
-NYU Depth v2	Depth estimation	120K+ samples	NYU Depth v2
+## 📊 Dataset Details  
+| **Dataset Name**    | **Purpose**                  | **Size** | **Number of Samples** | **Source** |  
+|---------------------|-----------------------------|----------|----------------------|------------|  
+| **CrowdHuman**      | Object detection & tracking | 15GB+    | 15K+ images         | [CrowdHuman](https://www.crowdhuman.org) |  
+| **NYU Depth v2**    | Depth estimation            | 30GB+    | 120K+ samples       | [NYU Depth v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) |  
+
+---
+
 ## ⚙ Installation & Usage
 1️⃣ Setup Google Drive (if using Google Colab)
 ```
@@ -82,17 +84,20 @@ cd ..
 ```
 python src/demo.py mot --arch resdcn_34 --load_model /content/gdrive/MyDrive/model_50.pth --conf_thres 0.4 --input-video /content/MajorProject/videos/test.mp4
 ```
-## 🏆 Results & Performance
-Metric	Value
-Object Detection Accuracy	92.5%
-Tracking Accuracy (MOTA)	87.2%
-Depth Estimation RMSE	0.45m
-Inference Speed	~60ms/frame
+## 📈 Results & Performance  
+| **Metric**                  | **Description**                          | **Value** |  
+|-----------------------------|------------------------------------------|----------|  
+| **Object Detection Accuracy** | Measures how accurately objects are detected | **92.5%** |  
+| **Tracking Accuracy (MOTA)**  | Multiple Object Tracking Accuracy       | **87.2%** |  
+| **Depth Estimation RMSE**     | Root Mean Square Error in depth prediction | **0.45m** |  
+| **Inference Speed**           | Time taken per frame during inference | **~60ms/frame** |  
+
+---
 
 ## ⚡ Challenges Faced
-Data Diversity: Improving model generalization for different environments.
-Real-Time Processing: Optimizing latency for real-time tracking.
-Depth Estimation Accuracy: Handling varying lighting conditions.
+### Data Diversity: Improving model generalization for different environments.
+### Real-Time Processing: Optimizing latency for real-time tracking.
+### Depth Estimation Accuracy: Handling varying lighting conditions.
 
 ## 🔮 Future Enhancements
 ### 📱 Mobile App Integration – Develop an Android/iOS application.
@@ -100,34 +105,17 @@ Depth Estimation Accuracy: Handling varying lighting conditions.
 ### 🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
 
 ## 📜 References
-Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
-Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer Learning", arXiv, 2018.
+### Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
+### Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer Learning", arXiv, 2018.
 
 ## 🤝 Contributors
-👤 Ananya Vudumula
-👤 Mohammed Sanan Moinuddin
+### 👤 Mohammed Sanan Moinuddin
+### 👤 Ananya Vudumula
 
-## 📚 Supervisor: Dr. M. Swamy Das (CBIT)
+## 📚 Supervisor
+### Dr. M. Swamy Das (CBIT)
 
 ## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## ⭐ Show Your Support!
-If you found this project useful, consider giving it a ⭐ on GitHub and sharing it with others! 🚀
 
-
-
----
-
-### ✅ Key Markdown Features Used:
-- **Headings (`#`, `##`, `###`)**
-- **Bold (`**bold**`)**
-- **Bullet Points (`-` or `*`)**
-- **Code Blocks (` ```bash` and ` ```python`)**
-- **Tables (`| Column | Data |`)**
-- **Mermaid Diagrams (` ```mermaid` for flowchart)**
-- **Emojis (`🔥`, `📌`, `🚀`, etc.)**
-- **Hyperlinks (`[text](URL)`)**
-- **License and Contributors Section**
-
-This is fully formatted for **GitHub Markdown** and will render beautifully when viewed
