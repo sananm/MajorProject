@@ -29,22 +29,22 @@ graph TD;
     F -->|No Action| H[Continue Processing];
 ```
 ## 🛠 Technologies Used
-### Programming Language: Python 3.8
-### Deep Learning Frameworks: PyTorch, TensorFlow
-### Computer Vision Libraries: OpenCV
-### Hardware: NVIDIA CUDA-enabled GPU (for faster inference)
+- Programming Language: Python 3.8
+- Deep Learning Frameworks: PyTorch, TensorFlow
+- Computer Vision Libraries: OpenCV
+- Hardware: NVIDIA CUDA-enabled GPU (for faster inference)
 
 ## 🔬 Models Used
 
 1️⃣ FairMOT (Multi-Object Tracking)
-Backbone: ResNet-34 with Deep Layer Aggregation (DLA-34)
-Detection: CenterNet-based detection framework
-Re-ID Branch: 128-dimensional feature embeddings
+- Backbone: ResNet-34 with Deep Layer Aggregation (DLA-34)
+- Detection: CenterNet-based detection framework
+- Re-ID Branch: 128-dimensional feature embeddings
 
 2️⃣ Monocular Depth Estimation
-Encoder: DenseNet-169 pre-trained on ImageNet
-Decoder: Upsampling with skip connections
-Dataset: Trained on NYU Depth v2 dataset
+- Encoder: DenseNet-169 pre-trained on ImageNet
+- Decoder: Upsampling with skip connections
+- Dataset: Trained on NYU Depth v2 dataset
 
 ## 📊 Dataset Details  
 | **Dataset Name**    | **Purpose**                  | **Size** | **Number of Samples** | **Source** |  
@@ -95,18 +95,18 @@ python src/demo.py mot --arch resdcn_34 --load_model /content/gdrive/MyDrive/mod
 ---
 
 ## ⚡ Challenges Faced
-### Data Diversity: Improving model generalization for different environments.
-### Real-Time Processing: Optimizing latency for real-time tracking.
-### Depth Estimation Accuracy: Handling varying lighting conditions.
+- Data Diversity: Improving model generalization for different environments.
+- Real-Time Processing: Optimizing latency for real-time tracking.
+- Depth Estimation Accuracy: Handling varying lighting conditions.
 
 ## 🔮 Future Enhancements
-### 📱 Mobile App Integration – Develop an Android/iOS application.
-### 🎙 Voice Assistant Support – Implement AI-powered speech feedback.
-### 🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
+- 📱 Mobile App Integration – Develop an Android/iOS application.
+- 🎙 Voice Assistant Support – Implement AI-powered speech feedback.
+- 🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
 
 ## 📜 References
-### Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
-### Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer Learning", arXiv, 2018.
+- Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
+- Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer Learning", arXiv, 2018.
 
 ## 🤝 Contributors
 ### 👤 Mohammed Sanan Moinuddin
