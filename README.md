@@ -60,7 +60,7 @@ drive.mount('/content/gdrive')
 ```
 2️⃣ Clone the Repository
 ```
-git clone https://github.com/sanaman/MajorProject
+git clone https://github.com/sananm/MajorProject
 cd MajorProject
 ```
 3️⃣ Install Dependencies
@@ -89,15 +89,15 @@ Tracking Accuracy (MOTA)	87.2%
 Depth Estimation RMSE	0.45m
 Inference Speed	~60ms/frame
 
-##⚡ Challenges Faced
+## ⚡ Challenges Faced
 Data Diversity: Improving model generalization for different environments.
 Real-Time Processing: Optimizing latency for real-time tracking.
 Depth Estimation Accuracy: Handling varying lighting conditions.
 
 ## 🔮 Future Enhancements
-📱 Mobile App Integration – Develop an Android/iOS application.
-🎙 Voice Assistant Support – Implement AI-powered speech feedback.
-🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
+### 📱 Mobile App Integration – Develop an Android/iOS application.
+### 🎙 Voice Assistant Support – Implement AI-powered speech feedback.
+### 🔍 LiDAR Integration – Improve depth accuracy with additional sensors.
 
 ## 📜 References
 Zhang, Y. et al., "FairMOT: On the Fairness of Detection and Re-Identification in Multiple Object Tracking", IJCV, 2021.
@@ -109,10 +109,10 @@ Alhashim, I., Wonka, P., "High-Quality Monocular Depth Estimation via Transfer L
 
 ## 📚 Supervisor: Dr. M. Swamy Das (CBIT)
 
-##📝 License
+## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-##⭐ Show Your Support!
+## ⭐ Show Your Support!
 If you found this project useful, consider giving it a ⭐ on GitHub and sharing it with others! 🚀
 
 
