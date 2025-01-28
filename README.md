@@ -112,10 +112,6 @@ python src/demo.py mot --arch resdcn_34 --load_model /content/gdrive/MyDrive/mod
 ### 👤 Mohammed Sanan Moinuddin
 ### 👤 Ananya Vudumula
 
-## 📚 Supervisor
-### Dr. M. Swamy Das (CBIT)
 
-## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 
