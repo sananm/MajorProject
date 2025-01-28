@@ -15,6 +15,8 @@ The **Smart Assistance System for the Blind** is an AI-powered assistive technol
 
 ---
 
+
+
 ## 🏗 System Architecture
 
 ```mermaid
@@ -28,31 +30,34 @@ graph TD;
     F -->|Trigger Audio Alert| G(Speaker Output);
     F -->|No Action| H[Continue Processing];
 ```
-🛠 Technologies Used
+## 🛠 Technologies Used
 Programming Language: Python 3.8
 Deep Learning Frameworks: PyTorch, TensorFlow
 Computer Vision Libraries: OpenCV
 Hardware: NVIDIA CUDA-enabled GPU (for faster inference)
-🔬 Models Used
+
+## 🔬 Models Used
+
 1️⃣ FairMOT (Multi-Object Tracking)
 Backbone: ResNet-34 with Deep Layer Aggregation (DLA-34)
 Detection: CenterNet-based detection framework
 Re-ID Branch: 128-dimensional feature embeddings
+
 2️⃣ Monocular Depth Estimation
 Encoder: DenseNet-169 pre-trained on ImageNet
 Decoder: Upsampling with skip connections
 Dataset: Trained on NYU Depth v2 dataset
-📊 Dataset Details
+
+## 📊 Dataset Details
 Dataset Name	Purpose	Size	Source
 CrowdHuman	Object detection & tracking	15K+ images	CrowdHuman
 NYU Depth v2	Depth estimation	120K+ samples	NYU Depth v2
-⚙ Installation & Usage
+## ⚙ Installation & Usage
 1️⃣ Setup Google Drive (if using Google Colab)
-python
-Copy
-Edit
+```
 from google.colab import import drive
 drive.mount('/content/gdrive')
+```
 2️⃣ Clone the Repository
 bash
 Copy
